@@ -1,0 +1,33 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1%;
+}
+
+.title-container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2%;
+}
+
+.title-image{
+    width: 33.33%;
+    text-align: center;
+    padding: 5%;
+    img{
+        vertical-align: middle;
+
+    }
+}
+
+#title-movie{
+    background-color: #50bdd2;
+}
+
+#title-tv{
+    background-color: #67b32f;
+}
+
+#title-audio{
+    background-color: #eab600;
+}
