@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Roku Flashback</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+    <main id="app">
+          <header>
+              <div class="logo">
+                <img src="images/logo.png" alt="roku logo">
+              </div>
+            <nav class="Main-nav">
+              <ul>
+                <li v-on:click="light()"><img src="images/idea.svg" alt="adjust brightness"></li>
+                <li v-on:click="zoom()"><img src="images/loupe.svg" alt="zoom in"></li>
+                <li v-on:click="cc()"><img src="images/subtitling.svg" alt="add sustitle"></li>
+              </ul>
+            </nav>
+          </header>
+        
+          <div class="main-container">
+            <div class="title-container">
+                <div class="title-image" id="title-movie">
+                    <img src="images/movie.png" alt="movie icon">
+                </div>
+                <div class="title-image"  id="title-tv">
+                    <img src="images/tv.png" alt="tv icon">
+                </div>
+                <div class="title-image"  id="title-audio">
+                    <img src="images/audio.png" alt="audio icon">
+                </div>
+            </div>
+              
+            <div class="post-container">
+                <div class="image-container">
+                    <img src="images/popeye.png" alt="popeye post">
+                    <button @click.prevent="playmovie">play</button>
+                </div>
+                <div class="image-container">
+                    <img src="images/magnum.png" alt="magnum post">
+                    <button @click.prevent="playtv">play</button>
+                </div>
+                <div class="image-container">
+                    <img src="images/mc.png" alt="mc poster">
+                    <button @click.prevent="playaudio">play</button>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <div v-if="moviearea" class="videoarea">
+                    <video width="100%" controls autoplay>
+                        <source src="video/popeye.mp4" type="video/mp4">
+                        <track v-if="substitle" src="video/popeye.vtt"  kind="subtitles" srclang="en" label="English" default>
+                    </video>
+                </div>
+        
+                <div v-if="tvarea" class="videoarea">
+                    <video width="100%" controls autoplay>
+                        <source src="video/videoplayback.mp4" type="video/mp4">
+                    </video>
+                </div>
+        
+                <div v-if="audioarea" class="videoarea">
+                    <video width="100%" controls autoplay>
+                        <source src="video/beatit.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            </div>
+          </div>
+    </main>
+  
+      <script type="module" src="js/main.js"></script>
+  </body>
+  
+  </html>
+
